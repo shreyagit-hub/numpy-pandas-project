@@ -91,7 +91,7 @@ class ReportGenerator:
         
         plt.tight_layout()
         plt.savefig(output_file, dpi=300, bbox_inches='tight')
-        print(f"✓ Visualization saved to '{output_file}'")
+        print(f"Visualization saved to '{output_file}'")
         plt.close()
     
     def print_report(self):

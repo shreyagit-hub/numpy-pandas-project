@@ -33,7 +33,7 @@ def main():
     print(f" Rows removed: {summary['rows_removed']}")
     print(f" Missing values: {summary['missing_values']}")
     
-    # Step 3: Analyze Data
+    
     print("\n[3/4] Performing statistical analysis...")
     analyzer = DataAnalyzer(df_processed)
     
