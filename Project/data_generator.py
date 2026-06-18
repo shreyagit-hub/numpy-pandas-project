@@ -6,15 +6,12 @@ from datetime import datetime, timedelta
 def generate_sales_data(n_records=1000, seed=42):
     np.random.seed(seed)
     
-    #categories and regions
     categories = ['Electronics', 'Clothing', 'Food', 'Home', 'Sports']
     regions = ['North', 'South', 'East', 'West']
     
-    #date range
     start_date = datetime(2023, 1, 1)
     dates = [start_date + timedelta(days=int(x)) for x in np.random.randint(0, 365, n_records)]
     
-    #sales data
     data = {
         'date': dates,
         'category': np.random.choice(categories, n_records),
@@ -26,10 +23,9 @@ def generate_sales_data(n_records=1000, seed=42):
     
     df = pd.DataFrame(data)
     
-    #revenue calculation
+    
     df['revenue'] = df['quantity'] * df['price']
     
-    #adding missing values
     missing_indices = np.random.choice(df.index, size=int(0.1 * len(df)), replace=False)
     df.loc[missing_indices, 'price'] = np.nan
     

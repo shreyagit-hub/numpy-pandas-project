@@ -18,20 +18,19 @@ class DataProcessor:
         return self
     
     def add_derived_features(self):
-        #date components
         self.df['year'] = self.df['date'].dt.year
         self.df['month'] = self.df['date'].dt.month
         self.df['day_of_week'] = self.df['date'].dt.day_name()
         self.df['quarter'] = self.df['date'].dt.quarter
         
-        #price bins
+        
         self.df['price_category'] = pd.cut(
             self.df['price'],
             bins=[0, 50, 150, 300, 500],
             labels=['Budget', 'Standard', 'Premium', 'Luxury']
         )
         
-        #profit calculation (assuming 30% profit margin)
+        
         self.df['profit'] = self.df['revenue'] * 0.30
         
         return self
