@@ -9,14 +9,14 @@ def main():
     print("DATA ANALYSIS PIPELINE")
     print("=" * 50)
     
-    
+    # Step 1: Generate synthetic sales data
     print("\n[1/4] Generating synthetic sales data...")
     df = generate_sales_data(n_records=1000)
     print(f"✓ Generated {len(df)} records")
     print(f"  Columns: {', '.join(df.columns.tolist())}")
     print(f"  Missing values: {df.isnull().sum().sum()}")
     
-    
+    # Step 2: Process and clean the data
     print("\n[2/4] Processing and cleaning data...")
     processor = DataProcessor(df)
     (processor
@@ -33,7 +33,7 @@ def main():
     print(f" Rows removed: {summary['rows_removed']}")
     print(f" Missing values: {summary['missing_values']}")
     
-    
+    # Step 3: Analyze the data
     print("\n[3/4] Performing statistical analysis...")
     analyzer = DataAnalyzer(df_processed)
     
@@ -53,7 +53,7 @@ def main():
     print(" - Customer segmentation completed")
     print(" - Correlations computed")
     
-    
+    # Step 4: Generate reports and visualizations
     print("\n[4/4] Generating reports and visualizations...")
     report_gen = ReportGenerator(df_processed, analyzer)
     
